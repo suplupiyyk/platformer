@@ -5,14 +5,12 @@
 #include <SDL2/SDL_image.h>
 #include <Vector2f.hpp>
 
-class ENTITY {
+class Entity{
     Vector2f pos;
-    Vector2f box;
+    SDL_Rect body;
 
-    SDL_Rect rect;
-
-    
+    SDL_Texture* texture;
 
     public:
-    ENTITY(Vector2f p_pos, Vector2f p_box, SDL_Texture* texture) : pos(p_pos), box(p_box){};
+    Entity(Vector2f p_pos, Vector2f p_box, SDL_Texture* p_texture);
 };

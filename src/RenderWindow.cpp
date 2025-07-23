@@ -13,9 +13,22 @@ RenderWindow::RenderWindow(const char* title, int width, int height){
     }
 }
 
+SDL_Texture* RenderWindow::Load_Texture(const char* relative_path){
+    SDL_Texture* temp = NULL;
 
-void RenderWindow::render(){
+    temp = IMG_LoadTexture(ren, strcat(SDL_GetBasePath(), relative_path));
+    if (temp == nullptr){
+        std::cerr << "Texture failed to load:" << IMG_GetError() << std::endl;
+    }
+
+    return temp;
+}
+
+void RenderWindow::render(Entity entity){
     SDL_RenderClear(ren);
+    
+    // render entity code
+    
     SDL_RenderPresent(ren);
 }
 

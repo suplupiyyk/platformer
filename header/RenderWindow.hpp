@@ -1,6 +1,9 @@
 #pragma once
 #include<iostream>
 #include<SDL2/SDL.h>
+#include<SDL2/SDL_image.h>
+
+#include<Entity.hpp>
 
 class RenderWindow{
     SDL_Renderer* ren;
@@ -8,7 +11,7 @@ class RenderWindow{
 
     public:
     RenderWindow(const char* title, int width, int height);
-    SDL_Texture* Load_Texture(const char path);
-    void render();
+    SDL_Texture* Load_Texture(const char* relative_path);
+    void render(Entity entity);
     ~RenderWindow();
 };

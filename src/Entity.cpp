@@ -1,8 +1,8 @@
-#include <Entitiy.hpp>
+#include <Entity.hpp>
 
-Entity::Entity(int p_x, int p_y) : x(p_x), y(p_y){
-    rect.x = 0;
-    rect.y = 0;
-    rect.w = w;
-    rect.h = h;
+Entity::Entity(Vector2f p_pos, Vector2f p_box, SDL_Texture* p_texture) : pos(p_pos), texture(p_texture){
+    body.x = 0;
+    body.y = 0;
+    body.w = p_box.x;
+    body.h = p_box.y;
 }
