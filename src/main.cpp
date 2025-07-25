@@ -9,7 +9,7 @@ int WinMain(){
     SDL_Init(SDL_INIT_EVERYTHING);
     IMG_Init(IMG_INIT_PNG);
 
-    RenderWindow win("game", 600, 400); // hard coded screen size 
+    RenderWindow win("game", 600, 400);
 
     bool running = true;
     SDL_Event E;
@@ -27,7 +27,7 @@ int WinMain(){
         }
 
         win.render(box);
-    }
+    }   
 
     SDL_Quit();
     return 0;

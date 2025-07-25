@@ -13,4 +13,9 @@ class Entity{
 
     public:
     Entity(Vector2f p_pos, Vector2f p_box, SDL_Texture* p_texture);
+
+    SDL_Rect get_body();
+    Vector2f get_pos();
+
+    SDL_Texture* get_texture();
 };

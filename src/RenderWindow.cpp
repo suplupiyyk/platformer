@@ -24,11 +24,18 @@ SDL_Texture* RenderWindow::Load_Texture(const char* relative_path){
     return temp;
 }
 
-void RenderWindow::render(Entity entity){
+void RenderWindow::render(Entity& entity){
     SDL_RenderClear(ren);
     
-    // render entity code
-    
+    SDL_Rect src = entity.get_body();
+    src.x = 0;
+    src.y = 0;
+
+    SDL_Rect des = entity.get_body();
+    des.x = entity.get_pos().x;
+    des.y = entity.get_pos().y;
+
+    SDL_RenderCopy(ren, entity.get_texture(), &src, &des);
     SDL_RenderPresent(ren);
 }
 

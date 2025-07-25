@@ -12,6 +12,6 @@ class RenderWindow{
     public:
     RenderWindow(const char* title, int width, int height);
     SDL_Texture* Load_Texture(const char* relative_path);
-    void render(Entity entity);
+    void render(Entity& entity);
     ~RenderWindow();
 };
