@@ -3,6 +3,8 @@
 #include<SDL2/SDL_image.h>
 
 #include<Entity.hpp>
+#include<Player.hpp>
+
 #include<RenderWindow.hpp>
 
 int WinMain(){
@@ -15,7 +17,7 @@ int WinMain(){
     SDL_Event E;
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
-    Entity box(Vector2f(0, 0), Vector2f(50, 50), cat);
+    Player pl("player", 100, Vector2f(50, 50), Vector2f(50, 50), cat);
 
     while (running){
         while(SDL_PollEvent(&E)){
@@ -26,7 +28,7 @@ int WinMain(){
             }
         }
 
-        win.render(box);
+        win.render(pl);
     }   
 
     SDL_Quit();
