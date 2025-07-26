@@ -12,3 +12,11 @@ struct Vector2f
 
     inline void print(){std::cout << x << ", " << y << std::endl;}
 };
+
+
+enum struct Directions: uint8_t {
+    UP,
+    RIGHT,
+    LEFT,
+    DOWN
+};

@@ -29,7 +29,7 @@ int WinMain(){
         }
 
         win.render(pl);
-    }   
+    }
 
     SDL_Quit();
     return 0;

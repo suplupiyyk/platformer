@@ -5,11 +5,14 @@
 #include <iostream>
 
 #include <Entity.hpp>
-#include <Vector2f.hpp>
+#include <Util.hpp>
 
 
 class Player : public Entity {
     
     public:
     using Entity::Entity;
+
+    void move();
+
 };

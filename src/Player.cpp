@@ -5,5 +5,8 @@
 
 #include <Entity.hpp>
 #include <Player.hpp>
-#include <Vector2f.hpp>
+#include <Util.hpp>
 
+void Player::move(){
+
+}

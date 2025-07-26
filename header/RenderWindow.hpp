@@ -1,9 +1,10 @@
 #pragma once
-#include<iostream>
-#include<SDL2/SDL.h>
-#include<SDL2/SDL_image.h>
+#include <iostream>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
-#include<Entity.hpp>
+#include <Entity.hpp>
+#include <Util.hpp>
 
 class RenderWindow{
     SDL_Renderer* ren;
