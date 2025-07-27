@@ -5,6 +5,8 @@ Entity::Entity(std::string p_name, float p_hp, Vector2f p_pos, Vector2f p_box, S
     pos = p_pos;
     hp = p_hp;
 
+    velocity = Vector2f(10, 10);
+
     body.x = 0;
     body.y = 0;
     body.w = p_box.x; 

@@ -9,10 +9,9 @@
 
 
 class Player : public Entity {
-    
     public:
     using Entity::Entity;
 
-    void move();
+    void move(Directions dir, float delta_time);
 
 };

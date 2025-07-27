@@ -8,10 +8,11 @@
 class Entity{
     //attributes
     protected:
+    float hp;
     std::string name;
     Vector2f pos;
+    Vector2f velocity;
     SDL_Rect body;
-    float hp;
 
 
     SDL_Texture* texture;

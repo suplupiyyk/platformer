@@ -7,7 +7,7 @@ RenderWindow::RenderWindow(const char* title, int width, int height){
         std::cerr << "window failed: " << SDL_GetError() << std::endl;
     }
 
-    ren = SDL_CreateRenderer(win, -1, 0);
+    ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
     if (ren == nullptr){
         std::cerr << "renderer failed: " << SDL_GetError()  << std::endl;
     }
