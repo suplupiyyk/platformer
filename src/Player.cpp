@@ -7,6 +7,12 @@
 #include <Player.hpp>
 #include <Util.hpp>
 
+Player::Player(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Texture* texture, Vector2f velocity)
+    : Entity(name, hp, pos, box, texture)
+{
+    this->velocity = velocity;
+}
+
 void Player::move(Directions dir, float delta_time){
     switch (dir){
         case Directions::LEFT:

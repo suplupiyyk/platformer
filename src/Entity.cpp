@@ -1,18 +1,18 @@
 #include <Entity.hpp>
 
-Entity::Entity(std::string p_name, float p_hp, Vector2f p_pos, Vector2f p_box, SDL_Texture* p_texture){
-    name = p_name;
-    pos = p_pos;
-    hp = p_hp;
+Entity::Entity(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Texture* texture){
+    this->name = name;
+    this->pos = pos;
+    this->hp = hp;
 
-    velocity = Vector2f(10, 10);
+    this->velocity = Vector2f(10, 10);
 
-    body.x = 0;
-    body.y = 0;
-    body.w = p_box.x; 
-    body.h = p_box.y;
+    this->body.x = 0;
+    this->body.y = 0;
+    this->body.w = box.x; 
+    this->body.h = box.y;
 
-    texture = p_texture;
+    this->texture = texture;
 }
 
 SDL_Rect Entity::get_body(){

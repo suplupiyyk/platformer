@@ -10,7 +10,7 @@
 
 class Player : public Entity {
     public:
-    using Entity::Entity;
+    Player(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Texture* texture, Vector2f velocity = Vector2f(50, 50));
 
     void move(Directions dir, float delta_time);
 
