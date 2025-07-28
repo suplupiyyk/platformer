@@ -39,6 +39,15 @@ void RenderWindow::render(Entity& entity){
     SDL_RenderPresent(ren);
 }
 
+int RenderWindow::get_win_fps(){
+    int dis_index = SDL_GetWindowDisplayIndex(win);
+
+    SDL_DisplayMode mode;
+
+    SDL_GetDisplayMode(dis_index, 0, &mode);
+
+    return mode.refresh_rate;
+}
 
 RenderWindow::~RenderWindow(){
     SDL_DestroyWindow(win);

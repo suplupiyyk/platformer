@@ -23,6 +23,10 @@ Vector2f Entity::get_pos(){
     return pos;
 }
 
+Vector2f Entity::get_velocity(){
+    return velocity;
+}
+
 SDL_Texture* Entity::get_texture(){
     return texture;
 }

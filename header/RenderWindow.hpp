@@ -14,5 +14,7 @@ class RenderWindow{
     RenderWindow(const char* title, int width, int height);
     SDL_Texture* Load_Texture(const char* relative_path);
     void render(Entity& entity);
+
+    int get_win_fps();
     ~RenderWindow();
 };
