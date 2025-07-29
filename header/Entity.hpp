@@ -11,6 +11,7 @@ class Entity{
     SDL_Rect body;
     Vector2f pos;
     Vector2f velocity;
+    Vector2f accel; //acceleration
     float hp;
     std::string name;
 
@@ -26,4 +27,8 @@ class Entity{
     virtual Vector2f get_velocity();
 
     virtual SDL_Texture* get_texture();
+
+    virtual void gravity();
+
+    virtual void update();
 };

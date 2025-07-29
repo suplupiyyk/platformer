@@ -30,3 +30,11 @@ Vector2f Entity::get_velocity(){
 SDL_Texture* Entity::get_texture(){
     return texture;
 }
+
+void Entity::gravity(){
+    velocity.y += 9.8/200;
+}
+
+void Entity::update(){
+    this->pos.y += velocity.y;
+}

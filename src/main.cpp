@@ -16,13 +16,15 @@ int WinMain(){
 
     bool running = true;
     SDL_Event E;
+    const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
     Player pl("player", 100, Vector2f(50, 50), Vector2f(50, 50), cat);
 
     //float gravity = 9.80f;
+    int win_fps = win.get_win_fps();
 
-    float desired = 1.0f/60.0f;
+    float desired_fps = 1.0f/win_fps;
 
     float pr_time = SDL_GetTicks()/1000.0f;
     float accumulator = 0;
@@ -32,31 +34,35 @@ int WinMain(){
         float delta_time = ne_time - pr_time;
         accumulator += delta_time;
         
-        while (accumulator >= desired){
+        while (accumulator >= desired_fps){
             while(SDL_PollEvent(&E)){
-                if (E.key.keysym.sym == SDLK_ESCAPE){
+                if (keystate[SDL_SCANCODE_ESCAPE]){
                     running = false;
                 }
 
-                else if (E.key.keysym.sym == SDLK_UP){
-                    pl.move(Directions::UP, desired);
+                if (keystate[SDL_SCANCODE_UP]){
+                    pl.move(Directions::UP, desired_fps);
                 }
 
-                else if (E.key.keysym.sym == SDLK_RIGHT){
-                    pl.move(Directions::RIGHT, desired);
+                if (keystate[SDL_SCANCODE_RIGHT]){
+                    pl.move(Directions::RIGHT, desired_fps);
                 }
 
-                else if (E.key.keysym.sym == SDLK_LEFT){
-                    pl.move(Directions::LEFT, desired);
+                if (keystate[SDL_SCANCODE_LEFT]){
+                    pl.move(Directions::LEFT, desired_fps);
                 }
 
-    
-                win.render(pl);
             }
-
-            accumulator -= desired;
+            pl.gravity();
+            pl.update();
+            win.render(pl);
+            accumulator -= desired_fps;
         }
-        
+
+        if (accumulator != 0){ //idk just experimenting
+            SDL_Delay(accumulator*1000);
+            accumulator -= accumulator;
+        }
     }
 
     SDL_Quit();
