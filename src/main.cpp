@@ -53,9 +53,14 @@ int WinMain(){
                 }
 
             }
-            pl.gravity();
+
+            pl.collision();
+            pl.accel_update();
             pl.update();
+
             win.render(pl);
+
+            
             accumulator -= desired_fps;
         }
 

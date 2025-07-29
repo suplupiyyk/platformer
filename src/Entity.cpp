@@ -13,6 +13,8 @@ Entity::Entity(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
     this->body.h = box.y;
 
     this->texture = texture;
+
+    this->gravity = 1/400.0f;
 }
 
 SDL_Rect Entity::get_body(){
@@ -31,8 +33,17 @@ SDL_Texture* Entity::get_texture(){
     return texture;
 }
 
-void Entity::gravity(){
-    velocity.y += 9.8/200;
+void Entity::collision(){
+
+    if (this->pos.y == 400){
+        this->velocity.y *= -1;
+    }
+
+    
+}
+
+void Entity::accel_update(){
+    velocity.y += gravity;
 }
 
 void Entity::update(){
