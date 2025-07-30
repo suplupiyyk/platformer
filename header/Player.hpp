@@ -14,4 +14,6 @@ class Player : public Entity {
 
     void move(Directions dir, float delta_time);
 
+    void check(const Uint8* keystate, float desired_fps);
+
 };

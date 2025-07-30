@@ -12,6 +12,19 @@ Player::Player(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
 {
     this->velocity = velocity;
 }
+void Player::check(const Uint8* keystate, float desired_fps){
+    if (keystate[SDL_SCANCODE_UP]){
+        this->move(Directions::UP, desired_fps);
+    }
+
+    if (keystate[SDL_SCANCODE_RIGHT]){
+        this->move(Directions::RIGHT, desired_fps);
+    }
+
+    if (keystate[SDL_SCANCODE_LEFT]){
+        this->move(Directions::LEFT, desired_fps);
+    }
+}
 
 void Player::move(Directions dir, float delta_time){
     switch (dir){
