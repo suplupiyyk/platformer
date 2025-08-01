@@ -19,7 +19,7 @@ int WinMain(){
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
-    Player pl("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(0, 0));
+    Player pl("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 0));
 
     //float gravity = 9.80f;
     int win_fps = win.get_win_fps();

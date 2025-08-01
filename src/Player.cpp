@@ -14,7 +14,7 @@ Player::Player(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
 }
 void Player::check(const Uint8* keystate, float desired_fps){
     if (keystate[SDL_SCANCODE_UP]){
-        this->move(Directions::UP, desired_fps);
+        this->accel.y -= 100;
     }
 
     if (keystate[SDL_SCANCODE_RIGHT]){

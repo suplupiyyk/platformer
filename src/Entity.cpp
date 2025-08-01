@@ -35,11 +35,18 @@ SDL_Texture* Entity::get_texture(){
 
 void Entity::collision(){
 
-    if (this->pos.y + this->body.h >= 400){
-        this->velocity.y *= -1;
+    if (this->pos.y + this->body.h>= 400){
+        this->velocity.y = 0;
+        this->pos.y = 400-this->body.h;
     }
 
+    if (this->pos.x + this->body.w >= 600){
+        this->pos.x = 600-this->body.w;
+    }
 
+    if (this->pos.x <= 0){
+        this->pos.x = 0;
+    }
 }
 
 void Entity::accel_update(){
