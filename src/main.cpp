@@ -35,14 +35,14 @@ int WinMain(){
         accumulator += delta_time;
         pr_time = ne_time;
         
-        while(SDL_PollEvent(&E)){
-            if (keystate[SDL_SCANCODE_ESCAPE]){
-                running = false;
-            }
+        SDL_PumpEvents();
 
-            pl.check(keystate, desired_fps);
-
+        if (keystate[SDL_SCANCODE_ESCAPE]){
+            running = false;
         }
+
+        pl.check(keystate, desired_fps);
+        
 
         while (accumulator >= desired_fps){
 
