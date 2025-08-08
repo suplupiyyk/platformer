@@ -15,7 +15,7 @@ int WinMain(){
     RenderWindow win("game", 600, 400);
 
     bool running = true;
-    SDL_Event E;
+    //SDL_Event E;
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
@@ -40,16 +40,14 @@ int WinMain(){
         if (keystate[SDL_SCANCODE_ESCAPE]){
             running = false;
         }
-
-        pl.check(keystate, desired_fps);
         
 
         while (accumulator >= desired_fps){
 
-            pl.collision();
-            pl.accel_update();
+            pl.check(keystate, desired_fps);
+            pl.collision_border();
+
             pl.update();
-            pl.get_pos().print();
 
             win.render(pl);
 

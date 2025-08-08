@@ -33,26 +33,36 @@ SDL_Texture* Entity::get_texture(){
     return texture;
 }
 
-void Entity::collision(){
+void Entity::collision_border(){
 
-    if (this->pos.y + this->body.h>= 400){
-        this->velocity.y = 0;
-        this->pos.y = 400-this->body.h;
+    if (pos.x < 0){
+        pos.x = 0;
+        velocity.x = 0;
+    }
+    else if (pos.x + body.w > 600){
+        pos.x = 600 - body.w;
+        velocity.x = 0;
     }
 
-    if (this->pos.x + this->body.w >= 600){
-        this->pos.x = 600-this->body.w;
+    if (pos.y < 0){
+        pos.y = 0;
+        velocity.y = 0;
     }
-
-    if (this->pos.x <= 0){
-        this->pos.x = 0;
+    
+    else if (pos.y + body.h > 400){
+        pos.y = 400 - body.h;
+        is_on_ground = true;
+        velocity.y = 0;
     }
-}
-
-void Entity::accel_update(){
-    velocity.y += gravity;
 }
 
 void Entity::update(){
-    this->pos.y += velocity.y;
+    if (!is_on_ground){
+        this->velocity.y += gravity * 0.016f;
+    }
+    else {
+        this->velocity.y = 0;
+    }
+
+    this->pos.y += this->velocity.y;
 }

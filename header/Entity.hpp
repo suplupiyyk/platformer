@@ -11,8 +11,10 @@ class Entity{
     SDL_Rect body;
     Vector2f pos;
     Vector2f velocity;
-    Vector2f accel; //acceleration
+    Vector2f accel;
     float hp;
+
+    bool is_on_ground = false;
 
     float gravity;
     std::string name;
@@ -30,9 +32,7 @@ class Entity{
 
     virtual SDL_Texture* get_texture();
 
-    virtual void collision();
-
-    virtual void accel_update();
+    virtual void collision_border();
 
     virtual void update();
 };
