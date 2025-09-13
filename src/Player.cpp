@@ -5,6 +5,7 @@
 
 #include <Entity.hpp>
 #include <Player.hpp>
+#include <Block.hpp>
 #include <Util.hpp>
 
 Player::Player(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Texture* texture, Vector2f velocity)

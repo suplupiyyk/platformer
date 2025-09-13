@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 
 #include <Entity.hpp>
+#include <Block.hpp>
 #include <Util.hpp>
 
 class RenderWindow{
@@ -14,6 +15,9 @@ class RenderWindow{
     RenderWindow(const char* title, int width, int height);
     SDL_Texture* Load_Texture(const char* relative_path);
     void render(Entity& entity);
+    void render(Block& block);
+
+    void clear();
 
     int get_win_fps();
     ~RenderWindow();

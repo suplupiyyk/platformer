@@ -14,7 +14,7 @@ Entity::Entity(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
 
     this->texture = texture;
 
-    this->gravity = 9.8/20;
+    this->gravity = 2;
 }
 
 SDL_Rect Entity::get_body(){
@@ -35,18 +35,17 @@ SDL_Texture* Entity::get_texture(){
 
 void Entity::collision_border(){
 
-    if (pos.x < 0){
+    if (pos.x < 0 && velocity.x > 0){
         pos.x = 0;
-        velocity.x = 0;
     }
-    else if (pos.x + body.w > 600){
+
+    else if (pos.x + body.w> 600 && velocity.x > 0){
         pos.x = 600 - body.w;
-        velocity.x = 0;
     }
 
     if (pos.y < 0){
         pos.y = 0;
-        velocity.y = 0;
+        
     }
     
     else if (pos.y + body.h > 400){
