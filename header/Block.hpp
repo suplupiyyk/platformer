@@ -2,13 +2,14 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
+
+#include <Collideable.hpp>
 #include <Util.hpp>
 
-class Block{
+class Block : public collideable{
     Vector2f pos;
 
-    SDL_Rect body;
-    SDL_Texture* text;
+    SDL_Texture* text = nullptr;
     SDL_Color col;
 
 
@@ -19,6 +20,5 @@ class Block{
     Vector2f get_pos();
 
     SDL_Color get_color();
-    SDL_Rect get_body();
     SDL_Texture* get_text();
 };

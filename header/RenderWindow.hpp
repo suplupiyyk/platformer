@@ -14,10 +14,11 @@ class RenderWindow{
     public:
     RenderWindow(const char* title, int width, int height);
     SDL_Texture* Load_Texture(const char* relative_path);
-    void render(Entity& entity);
+    void render_texture(Entity& entity);
     void render(Block& block);
 
     void clear();
+    void update();
 
     int get_win_fps();
     ~RenderWindow();

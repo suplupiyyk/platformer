@@ -17,6 +17,7 @@ Block::Block(Vector2f dim, Vector2f pos, SDL_Color col){
 
     this->pos = pos;
     this->col = col;
+    this->text = NULL;
 
 }
 
@@ -26,10 +27,6 @@ Vector2f Block::get_pos(){
 
 SDL_Color Block::get_color(){
     return col;
-}
-
-SDL_Rect Block::get_body(){
-    return body;
 }
 
 SDL_Texture* Block::get_text(){

@@ -17,10 +17,6 @@ Entity::Entity(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
     this->gravity = 2;
 }
 
-SDL_Rect Entity::get_body(){
-    return body;
-}
-
 Vector2f Entity::get_pos(){
     return pos;
 }

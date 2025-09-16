@@ -5,6 +5,7 @@
 #include<Entity.hpp>
 #include<Player.hpp>
 #include<Block.hpp>
+#include<Collisionsystem.hpp>
 
 #include<time.h>
 
@@ -23,9 +24,8 @@ int WinMain(){
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
     Player pl("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 0));
 
-    Block rect(Vector2f(50, 50), Vector2f(10, 200), cat);
+    Block rect(Vector2f(50, 50), Vector2f(300, 350), nullptr);
 
-    //float gravity = 9.80f;
     int win_fps = win.get_win_fps();
 
     float desired_fps = 1.0f/win_fps;
@@ -53,9 +53,11 @@ int WinMain(){
 
             pl.update();
             pl.get_pos().print();
+
             win.clear();
-            win.render(pl);
+            win.render_texture(pl);
             win.render(rect);
+            win.update();
             
             accumulator -= desired_fps;
         }

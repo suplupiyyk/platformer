@@ -24,7 +24,7 @@ SDL_Texture* RenderWindow::Load_Texture(const char* relative_path){
     return temp;
 }
 
-void RenderWindow::render(Entity& entity){
+void RenderWindow::render_texture(Entity& entity){
     
     SDL_Rect src = entity.get_body();
     src.x = 0;
@@ -35,35 +35,43 @@ void RenderWindow::render(Entity& entity){
     des.y = entity.get_pos().y;
 
     SDL_RenderCopy(ren, entity.get_texture(), &src, &des);
-    SDL_RenderPresent(ren);
 }
 
 void RenderWindow::render(Block& block){
-    if (block.get_text() != NULL){
+    if (block.get_text() != nullptr){
         SDL_Rect src = block.get_body();
         src.x = 0;
         src.y = 0;
-        
+
         SDL_Rect des = block.get_body();
         des.x = block.get_pos().x;
         des.y = block.get_pos().y;
 
         SDL_RenderCopy(ren, block.get_text(), &src, &des);
+
+        return ;
     }
 
-    else{
-        SDL_SetRenderDrawColor(ren, block.get_color().r, block.get_color().g, block.get_color().b, block.get_color().a);
-        
-        SDL_Rect des = block.get_body();
-        des.x = block.get_pos().x;
-        des.y = block.get_pos().y;
+    SDL_SetRenderDrawColor(ren, 
+        block.get_color().r, 
+        block.get_color().g, 
+        block.get_color().b, 
+        block.get_color().a);
+    
+    SDL_Rect temp =block.get_body();
+    temp.x = block.get_pos().x;
+    temp.y = block.get_pos().y;
+    SDL_RenderFillRect(ren, &temp);
 
-        SDL_RenderDrawRect(ren, &des);
-    }
+    SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
 }
 
 void RenderWindow::clear(){
     SDL_RenderClear(ren);
+}
+
+void RenderWindow::update(){
+    SDL_RenderPresent(ren);
 }
 
 int RenderWindow::get_win_fps(){
