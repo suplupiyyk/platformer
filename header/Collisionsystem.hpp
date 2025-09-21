@@ -1,14 +1,19 @@
-#include <iostream>
+#pragma once
 #include <vector>
-#include <SDL2/SDL.h>
-
 #include <Collideable.hpp>
+#include <Entity.hpp>
+#include <typeinfo.h>
+
 
 
 class collision_system{
-    std::vector<collideable> array;
+    std::vector<collideable* > array;
 
     public:
-    collision_system(std::vector<collideable>);
-    
+    collision_system(std::vector<collideable*> array);
+    collision_system();
+
+    bool check(collideable& obj1, collideable& obj2);
+
+    void checkup();
 };

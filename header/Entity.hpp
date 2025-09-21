@@ -1,17 +1,11 @@
 #pragma once
 
-#include <iostream>
-
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-
 #include <Collideable.hpp>
 #include <Util.hpp>
 
 class Entity : public collideable{
     //attributes
     protected:
-    Vector2f pos;
     Vector2f velocity;
     Vector2f accel;
     float hp;
@@ -34,6 +28,7 @@ class Entity : public collideable{
     virtual SDL_Texture* get_texture();
 
     virtual void collision_border();
-
+    virtual bool& get_is_on_ground();
+    
     virtual void update();
 };

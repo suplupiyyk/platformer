@@ -1,4 +1,6 @@
 #include<iostream>
+#include<time.h>
+
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 
@@ -6,9 +8,6 @@
 #include<Player.hpp>
 #include<Block.hpp>
 #include<Collisionsystem.hpp>
-
-#include<time.h>
-
 #include<RenderWindow.hpp>
 
 int WinMain(){
@@ -18,13 +17,17 @@ int WinMain(){
     RenderWindow win("game", 600, 400);
 
     bool running = true;
-    //SDL_Event E;
+
+    
     const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
-    Player pl("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 0));
 
-    Block rect(Vector2f(50, 50), Vector2f(300, 350), nullptr);
+    Player* pl = new Player ("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 0));
+
+    Block* rect = new Block(Vector2f(50, 50), Vector2f(300, 350), nullptr);
+    std::vector<collideable*> array = {pl, rect};
+    collision_system cs(array);
 
     int win_fps = win.get_win_fps();
 
@@ -48,17 +51,19 @@ int WinMain(){
 
         while (accumulator >= desired_fps){
 
-            pl.check(keystate, desired_fps);
-            pl.collision_border();
+            pl->check(keystate, desired_fps);
+            pl->collision_border();
 
-            pl.update();
-            pl.get_pos().print();
+            pl->update();
+            //pl->get_pos().print();
 
             win.clear();
-            win.render_texture(pl);
-            win.render(rect);
+            win.render_texture(*pl);
+            win.render(*rect);
             win.update();
             
+            cs.checkup();
+
             accumulator -= desired_fps;
         }
 

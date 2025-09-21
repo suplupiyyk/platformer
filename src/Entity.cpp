@@ -51,6 +51,10 @@ void Entity::collision_border(){
     }
 }
 
+bool& Entity::get_is_on_ground(){
+    return this->is_on_ground;
+}
+
 void Entity::update(){
     if (!is_on_ground){
         this->velocity.y += gravity * 0.016f;
@@ -60,4 +64,5 @@ void Entity::update(){
     }
 
     this->pos.y += this->velocity.y;
+
 }

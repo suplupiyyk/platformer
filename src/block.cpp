@@ -3,7 +3,9 @@
 Block::Block(Vector2f dim, Vector2f pos, SDL_Texture* text){
     body.w = dim.x;
     body.h = dim.y;
-
+    body.x = 0;
+    body.y = 0;
+    
     this->pos = pos;    
     this->text = text;
 
@@ -17,7 +19,7 @@ Block::Block(Vector2f dim, Vector2f pos, SDL_Color col){
 
     this->pos = pos;
     this->col = col;
-    this->text = NULL;
+    this->text = nullptr;
 
 }
 

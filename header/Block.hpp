@@ -7,8 +7,7 @@
 #include <Util.hpp>
 
 class Block : public collideable{
-    Vector2f pos;
-
+    
     SDL_Texture* text = nullptr;
     SDL_Color col;
 
