@@ -43,11 +43,10 @@ void Player::move(Directions dir, float delta_time){
 void Player::on_collide(collideable& touched){
 
     if (typeid(touched) == typeid(Block)){
-        if (this->pos.y+this->body.y < touched.get_pos().y){
+        if (this->pos.y < touched.get_pos().y){
             this->is_on_ground = true;
             this->velocity.y = 0;
         }
     }
-
 
 }

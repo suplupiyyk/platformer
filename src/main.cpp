@@ -23,7 +23,7 @@ int WinMain(){
 
     SDL_Texture* cat = win.Load_Texture("assets/img/cat.png");
 
-    Player* pl = new Player ("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 0));
+    Player* pl = new Player ("player", 100, Vector2f(300, 200), Vector2f(50, 50), cat, Vector2f(100, 100));
 
     Block* rect = new Block(Vector2f(50, 50), Vector2f(300, 350), nullptr);
     std::vector<collideable*> array = {pl, rect};

@@ -14,7 +14,7 @@ Entity::Entity(std::string name, float hp, Vector2f pos, Vector2f box, SDL_Textu
 
     this->texture = texture;
 
-    this->gravity = 2;
+    this->gravity = 6;
 }
 
 Vector2f Entity::get_pos(){
@@ -64,5 +64,4 @@ void Entity::update(){
     }
 
     this->pos.y += this->velocity.y;
-
 }

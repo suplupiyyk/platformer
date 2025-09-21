@@ -20,6 +20,7 @@ bool collision_system::check(collideable& obj1, collideable& obj2){
 void collision_system::checkup(){
     for (unsigned int i = 0; i < array.size() -1; i++){
         if(check((*array[i]), (*array[i+1]))){
+            std::cout << "fired\n";
             array[i]->on_collide(*array[i+1]);
         }
         else if(typeid(*array[i]) == typeid(Entity)){
